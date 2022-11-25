@@ -12,13 +12,16 @@
   ;;        ;; See https://github.com/cognitect-labs/test-runner#configuration
   ;;        :main-opts ["-m" "cognitect.test-runner"]
   ;;        :exec-fn cognitect.test-runner.api/test}
- :build {:deps {io.github.seancorfield/build-clj {:git/tag "v0.8.2" :git/sha "0ffdb4c"}}
-         :ns-default build}
-  ;; same as :build but with :extra-deps and :main-opts for cider
- :build-cider {:deps {io.github.seancorfield/build-clj
-                      {:git/tag "v0.8.2" :git/sha "0ffdb4c"}}
-               :ns-default build
-               :extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
-                            cider/cider-nrepl {:mvn/version "0.28.7"}
-                            refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
-               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}}}
+  :build {:deps {io.github.seancorfield/build-clj {:git/tag "v0.8.2" :git/sha "0ffdb4c"}}
+          :ns-default build}
+  ;; same as :build but with :extra-deps and :main-opts for Cider.
+  ;; This is only if you want to work on build.clj directly in Emacs/REPL.
+  ;; Run this in shell as `clj -M:build` and then use `cider-connect`
+  ;; - see https://docs.cider.mx/cider/basics/middleware_setup.html#using-tools-deps
+  :build-cider {:deps {io.github.seancorfield/build-clj
+                       {:git/tag "v0.8.2" :git/sha "0ffdb4c"}}
+                :ns-default build
+                :extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
+                             cider/cider-nrepl {:mvn/version "0.28.7"}
+                             refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
+                :main-opts ["-m" "nrepl.cmdline" "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}}}

@@ -4,9 +4,15 @@ Exploring statistics with Clojure.
 
 ## Usage
 
+### Tests
+
 Run the project's tests (they'll fail until you edit them):
 
-    $ clojure -T:build test
+    $ bin/kaocha
+
+See https://github.com/lambdaisland/kaocha#all-tools for more info.
+
+### Packaging
 
 Run the project's CI pipeline and build a JAR (this will fail until you edit the tests to pass):
 
@@ -15,6 +21,8 @@ Run the project's CI pipeline and build a JAR (this will fail until you edit the
 This will produce an updated `pom.xml` file with synchronized dependencies inside the `META-INF`
 directory inside `target/classes` and the JAR in `target`. You can update the version (and SCM tag)
 information in generated `pom.xml` by updating `build.clj`.
+
+### Installation and deployment 
 
 Install it locally (requires the `ci` task be run first):
 
