@@ -1,4 +1,4 @@
-(ns net.curiousprogrammer.stats-clj-test
+(ns net.curiousprogrammer.stats-test
   (:require [clojure.test :refer [deftest is testing]]))
 
 (deftest a-test

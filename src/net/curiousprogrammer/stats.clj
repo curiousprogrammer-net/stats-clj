@@ -1,4 +1,4 @@
-(ns net.curiousprogrammer.stats-clj)
+(ns net.curiousprogrammer.stats)
 
 (defn foo
   "I don't do a whole lot."
