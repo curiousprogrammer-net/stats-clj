@@ -1,0 +1,31 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1" :exoscale.deps/inherit :all}}
+
+ :exoscale.project/lib net.curiousprogrammer/stats-clj
+ :exoscale.project/version-file "VERSION"
+
+ :aliases
+ {:project
+  {:ns-default exoscale.tools.project
+   :deps {io.github.exoscale/tools.project
+          {:git/sha "29011d6f6245beeabe95c4b2d3eaa1617937b7e0"}}
+   :exoscale.deps/inherit :all}
+  :test
+  {:extra-deps {lambdaisland/kaocha {:exoscale.deps/inherit :all, :mvn/version "1.66.1034"}}
+   :extra-paths ["test" "test/resources"]
+   :exec-fn  kaocha.runner/exec-fn
+   :exoscale.deps/inherit :all}}
+
+ :exoscale.deps/managed-dependencies
+ {org.clojure/clojure {:mvn/version "1.11.1"}}
+
+ :exoscale.deps/managed-aliases
+ {:project
+  {:ns-default exoscale.tools.project
+   :deps {io.github.exoscale/tools.project
+          {:git/sha "29011d6f6245beeabe95c4b2d3eaa1617937b7e0"}}}
+
+  :test
+  {:extra-deps {lambdaisland/kaocha {:exoscale.deps/inherit :all, :mvn/version "1.66.1034"}}
+   :extra-paths ["test" "test/resources"]
+   :exec-fn  kaocha.runner/exec-fn}}}
