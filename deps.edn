@@ -1,20 +1,24 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.11.1"}}
  :aliases
- {:test {:extra-paths ["test"]
-         :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
-                      io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
-         ;; this is normally provided by the build.clj machinery (`org.corfied.build`)
-         ;; See https://github.com/cognitect-labs/test-runner#configuration
-         :main-opts ["-m" "cognitect.test-runner"]
-         :exec-fn cognitect.test-runner.api/test}
-  :build {:deps {io.github.seancorfield/build-clj {:git/tag "v0.8.2" :git/sha "0ffdb4c"}}
-          :ns-default build}
+ {:test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.71.1119"}}
+         :extra-paths ["test" "test/resources"]
+         :main-opts ["-m" "kaocha.runner"]}
+  ;; alternatively, you can use cognitect's test runner
+  ;; :test {
+  ;;        :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+  ;;                     io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+  ;;        ;; this is normally provided by the build.clj machinery (`org.corfied.build`)
+  ;;        ;; See https://github.com/cognitect-labs/test-runner#configuration
+  ;;        :main-opts ["-m" "cognitect.test-runner"]
+  ;;        :exec-fn cognitect.test-runner.api/test}
+ :build {:deps {io.github.seancorfield/build-clj {:git/tag "v0.8.2" :git/sha "0ffdb4c"}}
+         :ns-default build}
   ;; same as :build but with :extra-deps and :main-opts for cider
-  :build-cider {:deps {io.github.seancorfield/build-clj
-                       {:git/tag "v0.8.2" :git/sha "0ffdb4c"}}
-                :ns-default build
-                :extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
-                             cider/cider-nrepl {:mvn/version "0.28.7"}
-                             refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
-                :main-opts ["-m" "nrepl.cmdline" "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}}}
+ :build-cider {:deps {io.github.seancorfield/build-clj
+                      {:git/tag "v0.8.2" :git/sha "0ffdb4c"}}
+               :ns-default build
+               :extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
+                            cider/cider-nrepl {:mvn/version "0.28.7"}
+                            refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
+               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}}}
