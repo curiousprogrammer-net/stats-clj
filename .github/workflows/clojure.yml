@@ -28,17 +28,17 @@ jobs:
           /root/.m2
         key: ${{ runner.os }}-${{ hashFiles('**/deps.edn') }}
 
-    - name: Check
-      id: check
-      run: clojure -T:project check
+    # - name: Check
+    #   id: check
+    #   run: clojure -T:project check
 
     - name: Test
       id: test
-      run: clojure -T:project test
+      run: ./bin/kaocha
 
-    - name: Lint
-      id: lint
-      run: clojure -T:project lint
+    # - name: Lint
+    #   id: lint
+    #   run: clojure -T:project lint
 
-    - name: Format
-      run: clojure -T:project format-check
+    # - name: Format
+    #   run: clojure -T:project format-check
